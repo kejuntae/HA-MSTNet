@@ -1,0 +1,16 @@
+/.idea/
+/.venv/
+/.pytest_cache/
+__pycache__/
+/results/
+/datasets/nest2024/UMAR/
+/datasets/nest2024/README.zh-CN.md
+/datasets/data_preprocessed/NEST2024/*.csv
+/datasets/data_preprocessed/NEST2024/*_processing_report.json
+/datasets/Boptest_data_gen/configs/
+/datasets/Boptest_data_gen/datasets/
+/datasets/Boptest_data_gen/metadata/
+/datasets/Boptest_data_gen/pilots/
+/datasets/Boptest_data_gen/processed/
+/datasets/Boptest_data_gen/raw/
+/datasets/Boptest_data_gen/reports/

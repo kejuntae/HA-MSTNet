@@ -1,0 +1,38 @@
+{
+  "name": "boptest_single_zone",
+  "split_dataset": false,
+  "split_csv_paths": {
+    "train": "datasets/data_preprocessed/Boptest_single_zone/train.csv",
+    "validation": "datasets/data_preprocessed/Boptest_single_zone/validation.csv",
+    "test": "datasets/data_preprocessed/Boptest_single_zone/test.csv"
+  },
+  "interval_minutes": 15,
+  "direct_thermal_power": true,
+  "interval_start_inputs": true,
+  "episode_column": "episode_id",
+  "target_origin_column": "target_origin_allowed",
+  "columns": {
+    "room_temperature": "operative_temperature_c",
+    "outdoor_temperature": "outdoor_temperature_c",
+    "solar_irradiance": "solar_ghi_w_m2",
+    "hvac_power": "q_floor_mean_w",
+    "time_sin": "Time interval sin",
+    "time_cos": "Time interval cos"
+  },
+  "occupancy": {
+    "mode": "column",
+    "column": "occupancy_people"
+  },
+  "source_units": {
+    "hvac_power": "W",
+    "solar_irradiance": "W/m²",
+    "temperature": "°C"
+  },
+  "source_notes": {
+    "valve_position": "Direct thermal power is not attenuated by a valve factor.",
+    "room_temperature": "Operative temperature on the fixed 2019 simulation calendar.",
+    "hvac_power": "Mean floor heat output over the current 15-minute interval, driving the next temperature.",
+    "occupancy": "The loader binarizes the original scheduled headcount (0 or 5).",
+    "evaluation": "Offline forecasting uses observed drivers. Online MPC requires actions and weather forecasts available at decision time."
+  }
+}

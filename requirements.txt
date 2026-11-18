@@ -1,0 +1,7 @@
+numpy>=1.26
+pandas>=2.0
+scipy>=1.10
+torch>=2.0
+astral>=3.2,<4
+tqdm>=4.66
+matplotlib>=3.7

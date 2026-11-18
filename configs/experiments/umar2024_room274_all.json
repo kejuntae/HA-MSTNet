@@ -1,0 +1,123 @@
+{
+  "name": "umar2024_room274",
+  "dataset_config": "configs/datasets/umar2024_room274_15min.json",
+  "history_steps": 48,
+  "horizon_steps": 24,
+  "window_stride": 1,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "models": [
+    "3r2c",
+    "pcnn",
+    "apcnn_mlp",
+    "lstm",
+    "mlp",
+    "modnn",
+    "pcicnn",
+    "HA-MSTNet"
+  ],
+  "training": {
+    "epochs": 120,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "patience": 10,
+    "device": "cuda",
+    "gradient_clip": 5.0,
+    "plot_every": 0
+  },
+  "model_params": {
+    "3r2c": {
+      "max_fit_windows": 1024,
+      "max_nfev": 200
+    },
+    "pcnn": {
+      "hidden_size": 512,
+      "layers": 2,
+      "input_hidden_sizes": [
+        128,
+        128
+      ],
+      "output_hidden_sizes": [
+        128,
+        128
+      ],
+      "learn_initial_hidden_states": true,
+      "base_division_factor": 10.0
+    },
+    "apcnn_mlp": {
+      "hidden_size": 128,
+      "layers": 3,
+      "coefficient_hidden_size": 64,
+      "physical_scale": 0.01,
+      "division_factor": 10.0
+    },
+    "lstm": {
+      "hidden_size": 64,
+      "layers": 1
+    },
+    "mlp": {
+      "hidden_sizes": [
+        128,
+        128
+      ],
+      "dropout": 0.1
+    },
+    "modnn": {
+      "internal_hidden": 8,
+      "external_hidden": 16,
+      "external_model": "RNN",
+      "window": 1,
+      "diff_alpha": 0.3,
+      "enforce_constraints": true,
+      "constraints": [
+        "hvac",
+        "internal"
+      ]
+    },
+    "pcicnn": {
+      "amplification": 15,
+      "layers": 3,
+      "bias": false,
+      "lag_regularization": 0.001,
+      "bias_regularization": 0.001
+    },
+    "HA-MSTNet": {
+      "loss_profile": "full",
+      "history_weight": 0.1,
+      "control_weight": 0.1,
+      "balance_weight": 0.1,
+      "identification_weight": 0.1,
+      "ramp_epochs": 0,
+      "holdout_steps": 4,
+      "physical_batch_size": 8,
+      "control_fraction": 0.05,
+      "d_model": 32,
+      "heads": 4,
+      "layers": 1,
+      "dropout": 0.1,
+      "patch_lengths": [
+        4,
+        8,
+        16
+      ],
+      "feedforward_ratio": 3,
+      "physics_width": 16,
+      "disturbance_bound_c": 2,
+      "learn_physics_mix": true,
+      "physics_mix_initial": 0.5,
+      "physics_context_pooling": "concat",
+      "history_fusion": "late_gated",
+      "scale_gate_width": 8,
+      "module_variant": "regime",
+      "adaptation_enabled": true,
+      "extra_disturbance_bound_c": 2.0,
+      "maximum_exchange_rate": 1.0
+    }
+  },
+  "rc_window_irr": false
+}

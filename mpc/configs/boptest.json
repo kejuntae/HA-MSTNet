@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:8000",
+  "scenario": "typical_heat_day",
+  "days": 1,
+  "horizon_steps": 24,
+  "comfort_weight": 20.0,
+  "comfort_margin_c": 0.2,
+  "move_weight": 0.1,
+  "max_iter": 300,
+  "max_cpu_seconds": 1.0,
+  "bias_alpha": 0.2,
+  "bias_limit_c": 1.0
+}
